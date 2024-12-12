@@ -15,19 +15,17 @@
 </head>
 <body>
 <div id="app" class="">
-  <div class="relative bg-indigo-600" style="margin-left: -1px">
-    <div class="max-w-screen-xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
-        <div class="pr-16 sm:text-center sm:px-16">
-            <p class="font-medium text-white flex justify-center">
-                <span class="inline-block">Waiting for requests on:
-                    <a class="underline cursor-pointer" onclick="copyToClipboard('{{ route('collect', [$dump->name]) }}')">
-                        Copy Link
-                    </a>
-                </span>
-            </p>
+    <div class="relative bg-indigo-600" style="marign-left: -1px">
+        <div class="max-w-screen-xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+            <div class="pr-16 sm:text-center sm:px-16">
+                <p class="font-medium text-white flex justify-center">
+                    <span class="inline-block">Waiting for requests on:
+                        <a class="underline" target="_blank" href="{{ route('collect', [$dump->name]) }}">{{ route('collect', [$dump->name]) }}</a>
+                    </span>
+                </p>
+            </div>
         </div>
     </div>
-</div>
     <div class="p-5 flex flex-col md:flex-row">
         <div class="w-full md:w-1/3 flex flex-col mr-5">
             <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -179,13 +177,6 @@
 </div>
 
 <script>
-     function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Link copied to clipboard!");
-        }).catch(err => {
-            console.error("Failed to copy text: ", err);
-        });
-    }
     new Vue({
         el: '#app',
 
